@@ -35,6 +35,24 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mouse Look"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""924e34f5-0c14-4786-abc6-9c3e504e7cfb"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""6aa26b72-3203-48af-bf22-1bc5feedee3a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +110,28 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""161ad90f-df4c-4da3-b348-aa1eb59ea5da"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mouse Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68723b3f-ab65-4c5f-8c62-18b351e788bf"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +141,8 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
         // CharacterActionMap
         m_CharacterActionMap = asset.FindActionMap("CharacterActionMap", throwIfNotFound: true);
         m_CharacterActionMap_Movement = m_CharacterActionMap.FindAction("Movement", throwIfNotFound: true);
+        m_CharacterActionMap_MouseLook = m_CharacterActionMap.FindAction("Mouse Look", throwIfNotFound: true);
+        m_CharacterActionMap_Interact = m_CharacterActionMap.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +205,15 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_CharacterActionMap;
     private List<ICharacterActionMapActions> m_CharacterActionMapActionsCallbackInterfaces = new List<ICharacterActionMapActions>();
     private readonly InputAction m_CharacterActionMap_Movement;
+    private readonly InputAction m_CharacterActionMap_MouseLook;
+    private readonly InputAction m_CharacterActionMap_Interact;
     public struct CharacterActionMapActions
     {
         private @CharacterInputs m_Wrapper;
         public CharacterActionMapActions(@CharacterInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_CharacterActionMap_Movement;
+        public InputAction @MouseLook => m_Wrapper.m_CharacterActionMap_MouseLook;
+        public InputAction @Interact => m_Wrapper.m_CharacterActionMap_Interact;
         public InputActionMap Get() { return m_Wrapper.m_CharacterActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +226,12 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @MouseLook.started += instance.OnMouseLook;
+            @MouseLook.performed += instance.OnMouseLook;
+            @MouseLook.canceled += instance.OnMouseLook;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(ICharacterActionMapActions instance)
@@ -187,6 +239,12 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @MouseLook.started -= instance.OnMouseLook;
+            @MouseLook.performed -= instance.OnMouseLook;
+            @MouseLook.canceled -= instance.OnMouseLook;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(ICharacterActionMapActions instance)
@@ -207,5 +265,7 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
     public interface ICharacterActionMapActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnMouseLook(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
