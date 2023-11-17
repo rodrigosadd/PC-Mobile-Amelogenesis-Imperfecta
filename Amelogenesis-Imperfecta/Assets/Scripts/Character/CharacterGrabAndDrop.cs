@@ -3,12 +3,14 @@ using UnityEngine;
 
 namespace Character
 {
-    public class CharacterInteract : MonoBehaviour
+    public class CharacterGrabAndDrop : MonoBehaviour
     {
         [SerializeField] private Transform _targetLookDirection;
+        [SerializeField] private Transform _grabPoint;
         [SerializeField] private float _maxDistanceToInteract;
         private RaycastHit _raycastHit;
         private CharacterInputs _characterInputs;
+        private IGrabbable _currentGrabbableObject;
 
         private void Awake()
         {
@@ -18,22 +20,29 @@ namespace Character
 
         private void OnEnable()
         {
-            _characterInputs.CharacterActionMap.Interact.performed += ctx => InteractWithObject();
+            _characterInputs.CharacterActionMap.Grab.performed += ctx => GrabObject();
+            _characterInputs.CharacterActionMap.Drop.performed += ctx => DropObject();
         }
 
         private void OnDisable()
         {
-            _characterInputs.CharacterActionMap.Interact.performed -= ctx => InteractWithObject();
+            _characterInputs.CharacterActionMap.Grab.performed -= ctx => GrabObject();
+            _characterInputs.CharacterActionMap.Drop.performed -= ctx => DropObject();
         }
 
-        private void InteractWithObject()
+        private void GrabObject()
         {
             if (!Physics.Raycast(_targetLookDirection.position, _targetLookDirection.forward, out _raycastHit, _maxDistanceToInteract)) return;
 
-            if (!_raycastHit.transform.TryGetComponent(out IInteractable interactable)) return;
+            if (!_raycastHit.transform.TryGetComponent(out _currentGrabbableObject)) return;
             
             Debug.Log("Interacted with object!!!");
-            interactable.Interact();
+            _currentGrabbableObject.Grab(_grabPoint);
+        }
+
+        private void DropObject()
+        {
+            _currentGrabbableObject.Drop();
         }
 
 #if DEBUG_MODE

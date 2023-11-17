@@ -46,9 +46,18 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""Grab"",
                     ""type"": ""Button"",
                     ""id"": ""6aa26b72-3203-48af-bf22-1bc5feedee3a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""a46dff4c-5e34-4dd9-90f3-136896208281"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -129,7 +138,18 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interact"",
+                    ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9e08405-2aa1-44b1-bc7f-fbf43748762c"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -142,7 +162,8 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
         m_CharacterActionMap = asset.FindActionMap("CharacterActionMap", throwIfNotFound: true);
         m_CharacterActionMap_Movement = m_CharacterActionMap.FindAction("Movement", throwIfNotFound: true);
         m_CharacterActionMap_MouseLook = m_CharacterActionMap.FindAction("Mouse Look", throwIfNotFound: true);
-        m_CharacterActionMap_Interact = m_CharacterActionMap.FindAction("Interact", throwIfNotFound: true);
+        m_CharacterActionMap_Grab = m_CharacterActionMap.FindAction("Grab", throwIfNotFound: true);
+        m_CharacterActionMap_Drop = m_CharacterActionMap.FindAction("Drop", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -206,14 +227,16 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
     private List<ICharacterActionMapActions> m_CharacterActionMapActionsCallbackInterfaces = new List<ICharacterActionMapActions>();
     private readonly InputAction m_CharacterActionMap_Movement;
     private readonly InputAction m_CharacterActionMap_MouseLook;
-    private readonly InputAction m_CharacterActionMap_Interact;
+    private readonly InputAction m_CharacterActionMap_Grab;
+    private readonly InputAction m_CharacterActionMap_Drop;
     public struct CharacterActionMapActions
     {
         private @CharacterInputs m_Wrapper;
         public CharacterActionMapActions(@CharacterInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_CharacterActionMap_Movement;
         public InputAction @MouseLook => m_Wrapper.m_CharacterActionMap_MouseLook;
-        public InputAction @Interact => m_Wrapper.m_CharacterActionMap_Interact;
+        public InputAction @Grab => m_Wrapper.m_CharacterActionMap_Grab;
+        public InputAction @Drop => m_Wrapper.m_CharacterActionMap_Drop;
         public InputActionMap Get() { return m_Wrapper.m_CharacterActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -229,9 +252,12 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
             @MouseLook.started += instance.OnMouseLook;
             @MouseLook.performed += instance.OnMouseLook;
             @MouseLook.canceled += instance.OnMouseLook;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
+            @Grab.started += instance.OnGrab;
+            @Grab.performed += instance.OnGrab;
+            @Grab.canceled += instance.OnGrab;
+            @Drop.started += instance.OnDrop;
+            @Drop.performed += instance.OnDrop;
+            @Drop.canceled += instance.OnDrop;
         }
 
         private void UnregisterCallbacks(ICharacterActionMapActions instance)
@@ -242,9 +268,12 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
             @MouseLook.started -= instance.OnMouseLook;
             @MouseLook.performed -= instance.OnMouseLook;
             @MouseLook.canceled -= instance.OnMouseLook;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
+            @Grab.started -= instance.OnGrab;
+            @Grab.performed -= instance.OnGrab;
+            @Grab.canceled -= instance.OnGrab;
+            @Drop.started -= instance.OnDrop;
+            @Drop.performed -= instance.OnDrop;
+            @Drop.canceled -= instance.OnDrop;
         }
 
         public void RemoveCallbacks(ICharacterActionMapActions instance)
@@ -266,6 +295,7 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnMouseLook(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
+        void OnGrab(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
     }
 }
