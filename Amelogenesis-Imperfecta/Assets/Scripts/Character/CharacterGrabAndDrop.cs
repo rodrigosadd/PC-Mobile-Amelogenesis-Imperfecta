@@ -1,5 +1,6 @@
 using Interfaces;
 using UnityEngine;
+using Character_Inputs;
 
 namespace Character
 {
@@ -8,26 +9,22 @@ namespace Character
         [SerializeField] private Transform _targetLookDirection;
         [SerializeField] private Transform _grabPoint;
         [SerializeField] private float _maxDistanceToInteract;
+        [SerializeField] private float _throwForceObject;
         private RaycastHit _raycastHit;
-        private CharacterInputs _characterInputs;
         private IGrabbable _currentGrabbableObject;
-
-        private void Awake()
-        {
-            _characterInputs = new CharacterInputs();
-            _characterInputs.Enable();
-        }
-
+        
         private void OnEnable()
         {
-            _characterInputs.CharacterActionMap.Grab.performed += ctx => GrabObject();
-            _characterInputs.CharacterActionMap.Drop.performed += ctx => DropObject();
+            CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Grab.performed += ctx => GrabObject();
+            CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Drop.performed += ctx => DropObject();
+            CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Throw.performed += ctx => ThrowObject();
         }
 
         private void OnDisable()
         {
-            _characterInputs.CharacterActionMap.Grab.performed -= ctx => GrabObject();
-            _characterInputs.CharacterActionMap.Drop.performed -= ctx => DropObject();
+            CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Grab.performed -= ctx => GrabObject();
+            CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Drop.performed -= ctx => DropObject();
+            CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Throw.performed -= ctx => ThrowObject();
         }
 
         private void GrabObject()
@@ -37,12 +34,20 @@ namespace Character
             if (!_raycastHit.transform.TryGetComponent(out _currentGrabbableObject)) return;
             
             Debug.Log("Interacted with object!!!");
-            _currentGrabbableObject.Grab(_grabPoint);
+            _currentGrabbableObject.GrabObject(_grabPoint);
         }
 
         private void DropObject()
         {
-            _currentGrabbableObject.Drop();
+            if (_currentGrabbableObject == null) return;
+
+            _currentGrabbableObject.DropObject();
+            _currentGrabbableObject = null;
+        }
+
+        private void ThrowObject()
+        {
+            if(_currentGrabbableObject != null) _currentGrabbableObject.ThrowObject(_targetLookDirection, _throwForceObject);
         }
 
 #if DEBUG_MODE

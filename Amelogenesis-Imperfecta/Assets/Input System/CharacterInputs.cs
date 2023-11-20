@@ -62,6 +62,15 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Throw"",
+                    ""type"": ""Button"",
+                    ""id"": ""0236864b-39e3-4fb6-9362-842046c5f6b7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -145,11 +154,22 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a9e08405-2aa1-44b1-bc7f-fbf43748762c"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""73a73557-4705-4f97-9b3d-6148f9f68b38"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -164,6 +184,7 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
         m_CharacterActionMap_MouseLook = m_CharacterActionMap.FindAction("Mouse Look", throwIfNotFound: true);
         m_CharacterActionMap_Grab = m_CharacterActionMap.FindAction("Grab", throwIfNotFound: true);
         m_CharacterActionMap_Drop = m_CharacterActionMap.FindAction("Drop", throwIfNotFound: true);
+        m_CharacterActionMap_Throw = m_CharacterActionMap.FindAction("Throw", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +250,7 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterActionMap_MouseLook;
     private readonly InputAction m_CharacterActionMap_Grab;
     private readonly InputAction m_CharacterActionMap_Drop;
+    private readonly InputAction m_CharacterActionMap_Throw;
     public struct CharacterActionMapActions
     {
         private @CharacterInputs m_Wrapper;
@@ -237,6 +259,7 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
         public InputAction @MouseLook => m_Wrapper.m_CharacterActionMap_MouseLook;
         public InputAction @Grab => m_Wrapper.m_CharacterActionMap_Grab;
         public InputAction @Drop => m_Wrapper.m_CharacterActionMap_Drop;
+        public InputAction @Throw => m_Wrapper.m_CharacterActionMap_Throw;
         public InputActionMap Get() { return m_Wrapper.m_CharacterActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
             @Drop.started += instance.OnDrop;
             @Drop.performed += instance.OnDrop;
             @Drop.canceled += instance.OnDrop;
+            @Throw.started += instance.OnThrow;
+            @Throw.performed += instance.OnThrow;
+            @Throw.canceled += instance.OnThrow;
         }
 
         private void UnregisterCallbacks(ICharacterActionMapActions instance)
@@ -274,6 +300,9 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
             @Drop.started -= instance.OnDrop;
             @Drop.performed -= instance.OnDrop;
             @Drop.canceled -= instance.OnDrop;
+            @Throw.started -= instance.OnThrow;
+            @Throw.performed -= instance.OnThrow;
+            @Throw.canceled -= instance.OnThrow;
         }
 
         public void RemoveCallbacks(ICharacterActionMapActions instance)
@@ -297,5 +326,6 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
         void OnMouseLook(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
+        void OnThrow(InputAction.CallbackContext context);
     }
 }

@@ -4,7 +4,8 @@ namespace Interfaces
 {
     public interface IGrabbable
     {
-        public void Grab(Transform position);
-        public void Drop();
+        public void GrabObject(Transform position);
+        public void DropObject();
+        public void ThrowObject(Transform direction, float throwForce);
     }
 }

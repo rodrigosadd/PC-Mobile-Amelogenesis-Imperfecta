@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.Serialization;
+using Character_Inputs;
 
 namespace Character
 {
@@ -11,16 +11,9 @@ namespace Character
         [SerializeField] private float _groundDistance;
         [SerializeField] private LayerMask _groundLayer;
         [SerializeField] private float _gravity = -9.81f;
-        private CharacterInputs _characterInputs;
         private Vector3 _velocity;
         private bool _isGrounded;
         
-        private void Awake()
-        {
-            _characterInputs = new CharacterInputs();
-            _characterInputs.Enable();
-        }
-
         void Update()
         {
             _isGrounded = Physics.CheckSphere(_groundCheck.position, _groundDistance, _groundLayer);
@@ -30,7 +23,7 @@ namespace Character
                 _velocity.y = -2f;
             }
             
-            var movementInput = _characterInputs.CharacterActionMap.Movement.ReadValue<Vector2>();
+            var movementInput = CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Movement.ReadValue<Vector2>();
             var direction = transform.right * movementInput.x + transform.forward * movementInput.y;
         
             _characterController.Move(direction * (_speed * Time.deltaTime));
