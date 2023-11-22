@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace Scriptable_Objects.Channels
 {
-    [CreateAssetMenu(menuName = "Event Channels/Bool", fileName = "Bool Event Channel")]
+    [CreateAssetMenu(menuName = "Scriptable Objects/Event Channels/Bool", fileName = "Bool Event Channel")]
     public class BoolEventChannelSO : ScriptableObject
     {
         public UnityAction<bool> OnBoolRequested;
