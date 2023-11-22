@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e4b789c6aff41928c8a307be0fd1517, type: 3}
-  m_Name: Character Inputs Event Channel
+  m_Script: {fileID: 11500000, guid: 7a0f6522c64e09e4e9c84193495aee1d, type: 3}
+  m_Name: Move To Target Void Event Channel
   m_EditorClassIdentifier: 
-  OnCharacterInputsRequested:
+  OnVoidRequested:
     m_PersistentCalls:
       m_Calls: []

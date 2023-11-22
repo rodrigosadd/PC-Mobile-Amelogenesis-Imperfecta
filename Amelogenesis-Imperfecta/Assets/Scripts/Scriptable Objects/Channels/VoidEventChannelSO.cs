@@ -3,10 +3,10 @@ using UnityEngine.Events;
 
 namespace Scriptable_Objects.Channels
 {
-    [CreateAssetMenu(menuName = "Event Channels/Void", fileName = "void Event Channel")]
+    [CreateAssetMenu(menuName = "Event Channels/Void", fileName = "Void Event Channel")]
     public class VoidEventChannelSO : ScriptableObject
     {
-        public UnityEvent OnVoidRequested;
+        public UnityAction OnVoidRequested;
 
         public void RaiseVoidEvent()
         {

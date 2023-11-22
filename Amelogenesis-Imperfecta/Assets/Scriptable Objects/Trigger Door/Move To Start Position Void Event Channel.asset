@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a0f6522c64e09e4e9c84193495aee1d, type: 3}
-  m_Name: void Event Channel
+  m_Name: Move To Start Position Void Event Channel
   m_EditorClassIdentifier: 
   OnVoidRequested:
     m_PersistentCalls:
