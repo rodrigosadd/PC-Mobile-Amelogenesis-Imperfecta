@@ -5,8 +5,8 @@ namespace Character
 {
     public class MouseLook : MonoBehaviour
     {
-        [SerializeField] private float _mouseSensitivity;
         [SerializeField] private Transform _characterBody;
+        [SerializeField] private float _mouseSensitivity;
         [SerializeField] private float _clampXRotationMin;
         [SerializeField] private float _clampXRotationMax;
         private float _xRotation;

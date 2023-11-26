@@ -1,7 +1,9 @@
+using UnityEngine;
+
 namespace Quest_System
 {
-    [System.Serializable]
-    public class Quest
+    [CreateAssetMenu(menuName = "Scriptable Objects/Quest", fileName = "New Quest")]
+    public class Quest : ScriptableObject
     {
         public string questName;
         public string questDescription;

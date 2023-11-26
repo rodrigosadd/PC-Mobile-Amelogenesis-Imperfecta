@@ -5,11 +5,11 @@ namespace Character
 {
     public class CharacterMovement : MonoBehaviour
     {
-        [SerializeField] private CharacterController _characterController;
-        [SerializeField] private float _speed;
-        [SerializeField] private Transform _groundCheck;
-        [SerializeField] private float _groundDistance;
         [SerializeField] private LayerMask _groundLayer;
+        [SerializeField] private CharacterController _characterController;
+        [SerializeField] private Transform _groundCheck;
+        [SerializeField] private float _speed;
+        [SerializeField] private float _groundDistance;
         [SerializeField] private float _gravity = -9.81f;
         private Vector3 _velocity;
         private bool _isGrounded;
