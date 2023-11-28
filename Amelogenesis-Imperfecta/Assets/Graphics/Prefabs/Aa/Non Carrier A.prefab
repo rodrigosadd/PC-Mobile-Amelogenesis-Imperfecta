@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rbody: {fileID: 160938002725896930}
+  _boolEventChannel: {fileID: 11400000, guid: 644c24024e1be8a4088651b306d94e21, type: 2}
 --- !u!1001 &5996078639694262786
 PrefabInstance:
   m_ObjectHideFlags: 0

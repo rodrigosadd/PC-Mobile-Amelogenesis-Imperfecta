@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2950f4978ca4eff8e34dff7178236d9, type: 3}
+  m_Name: Fluoride Application Quest
+  m_EditorClassIdentifier: 
+  questName: "Aplica\xE7\xE3o de fl\xFAor"
+  questDescription: "Uma descri\xE7\xE3o legal aqui..."
+  isCompleted: 0

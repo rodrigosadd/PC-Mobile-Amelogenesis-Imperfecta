@@ -6,7 +6,6 @@ namespace Itens
     public class GrabbableObject : MonoBehaviour, IGrabbable
     {
         [SerializeField] private Rigidbody _rbody;
-        private CharacterInputs _characterInputs;
         
         public void PickupObject(Transform holdArea)
         {

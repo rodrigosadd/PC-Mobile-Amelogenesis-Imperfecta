@@ -11,12 +11,6 @@ namespace Character
         [SerializeField] private float _clampXRotationMax;
         private float _xRotation;
         
-        private void Start()
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-
         private void Update()
         {
             var mousePosition = CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.MouseLook.ReadValue<Vector2>() * (_mouseSensitivity * Time.deltaTime);
