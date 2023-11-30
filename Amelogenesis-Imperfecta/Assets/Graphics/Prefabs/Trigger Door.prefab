@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5561446063665562034}
   - component: {fileID: 5561446063665562035}
   - component: {fileID: 5561446063665562036}
+  - component: {fileID: 5304557067912403627}
   m_Layer: 0
   m_Name: Trigger Door
   m_TagString: Untagged
@@ -61,7 +62,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerLayerMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 0
+  _boolEventChannel: {fileID: 0}
+--- !u!114 &5304557067912403627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5561446063665562037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65768375b2f4ff7bab9a566309b22b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   _boolEventChannel: {fileID: 0}
 --- !u!1 &5561446063892628343
 GameObject:
