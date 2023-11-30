@@ -2298,6 +2298,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2590669040879943554, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _moveToTargetPositionVoidEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: b163f1d4906d47640a45faa13e59b0ec,
+        type: 2}
+    - target: {fileID: 2590669040879943554, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _ReturnToStartPositionVoidEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 96f222b55dfb7354991d0c952bd12d27,
+        type: 2}
+    - target: {fileID: 3966074903438153950, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _boolEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: aafac6b3f4f187f4db72c0fbf943183b,
+        type: 2}
+    - target: {fileID: 3966074903438153950, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _triggerLayerMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 5304557067912403627, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
         type: 3}
       propertyPath: _boolEventChannel
@@ -2378,7 +2401,60 @@ PrefabInstance:
     - target: {fileID: 5561446063665562037, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
         type: 3}
       propertyPath: m_Name
-      value: Trigger Door (1)
+      value: Trigger Door Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: b163f1d4906d47640a45faa13e59b0ec,
+        type: 2}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RaiseVoidEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 96f222b55dfb7354991d0c952bd12d27,
+        type: 2}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RaiseVoidEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Scriptable_Objects.Channels.VoidEventChannelSO, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Scriptable_Objects.Channels.VoidEventChannelSO, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735244907372781422, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _boolEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f98e703cc8f518459c9b1be792f8245,
+        type: 2}
+    - target: {fileID: 7735244907372781422, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _triggerLayerMask.m_Bits
+      value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8, type: 3}
@@ -4880,6 +4956,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2590669040879943554, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _moveToTargetPositionVoidEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 43e42c9d81547aa41a9b2fc3c61f8fce,
+        type: 2}
+    - target: {fileID: 2590669040879943554, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _ReturnToStartPositionVoidEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: a9c1ffcd7d247bd438af3f7ab8e57a97,
+        type: 2}
+    - target: {fileID: 3966074903438153950, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _boolEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 15d1a837be172d14ca991f4911438464,
+        type: 2}
+    - target: {fileID: 3966074903438153950, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _triggerLayerMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 5304557067912403627, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
         type: 3}
       propertyPath: _boolEventChannel
@@ -4960,9 +5059,63 @@ PrefabInstance:
     - target: {fileID: 5561446063665562037, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
         type: 3}
       propertyPath: m_Name
-      value: Trigger Door
+      value: Trigger Door Left
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 43e42c9d81547aa41a9b2fc3c61f8fce,
+        type: 2}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RaiseVoidEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: a9c1ffcd7d247bd438af3f7ab8e57a97,
+        type: 2}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RaiseVoidEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Scriptable_Objects.Channels.VoidEventChannelSO, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Scriptable_Objects.Channels.VoidEventChannelSO, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325974226727460880, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735244907372781422, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _boolEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 644c24024e1be8a4088651b306d94e21,
+        type: 2}
+    - target: {fileID: 7735244907372781422, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8,
+        type: 3}
+      propertyPath: _triggerLayerMask.m_Bits
+      value: 1536
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3314012952297332222, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9c6af4c4bbe539d43a8a4cf43f8a21c8, type: 3}
 --- !u!1001 &5953859086074261068
 PrefabInstance:

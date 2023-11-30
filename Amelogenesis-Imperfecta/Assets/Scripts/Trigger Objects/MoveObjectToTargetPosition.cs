@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Scriptable_Objects.Channels;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Trigger_Objects
 {
@@ -14,6 +15,8 @@ namespace Trigger_Objects
         [SerializeField] private float _delayMoveToTargetPosition;
         [SerializeField] private float _delayMoveToStartPosition;
         [SerializeField] private float _duration;
+        [SerializeField] private UnityEvent _onFinishedMoveToTargetPosition;
+        [SerializeField] private UnityEvent _onFinishedMoveToStartPosition;
         
         private Vector3 _startPosition;
 
@@ -36,12 +39,22 @@ namespace Trigger_Objects
 
         private void MoveToTargetPosition()
         {
-            transform.DOMove(_targetPosition.position, _duration).SetEase(_easeMoveToTargetPosition).SetDelay(_delayMoveToTargetPosition);
+            transform.DOMove(_targetPosition.position, _duration).SetEase(_easeMoveToTargetPosition).SetDelay(_delayMoveToTargetPosition).OnComplete(MoveToTargetPositionCallback);
         }
 
         private void ReturnToStartPosition()
         {
-            transform.DOMove(_startPosition, _duration).SetEase(_easeMoveToStartPosition).SetDelay(_delayMoveToStartPosition);
+            transform.DOMove(_startPosition, _duration).SetEase(_easeMoveToStartPosition).SetDelay(_delayMoveToStartPosition).OnComplete(MoveToStartPositionCallback);
+        }
+
+        private void MoveToTargetPositionCallback()
+        {
+            _onFinishedMoveToTargetPosition?.Invoke();
+        }
+        
+        private void MoveToStartPositionCallback()
+        {
+            _onFinishedMoveToStartPosition?.Invoke();
         }
     }
 }
