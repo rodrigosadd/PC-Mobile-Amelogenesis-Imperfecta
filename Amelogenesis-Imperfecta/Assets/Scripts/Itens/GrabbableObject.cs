@@ -41,5 +41,11 @@ namespace Itens
             _rbody.constraints = RigidbodyConstraints.None;
             _rbody.AddForce(direction.forward * throwForce);
         }
+        
+        public void SetPosition(Vector3 position)
+        {
+            transform.position = position;
+            _rbody.velocity = Vector3.zero;
+        }
     }
 }

@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2765948478201147891}
   - component: {fileID: 2765948478201147892}
   m_Layer: 11
-  m_Name: Dental Implants Treatment Object
+  m_Name: Treat and Prevent Treatment Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,6 +162,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questToComplete: {fileID: 11400000, guid: a9c7c9a4981d46e4d8757f71b7bb41e5, type: 2}
   _completeQuestStringEventChannel: {fileID: 11400000, guid: 3180801a4e48be443908c0ab958457cf,
+    type: 2}
+  _showTooltipStringEventChannel: {fileID: 11400000, guid: 943140b0605c54e4592850f80e37359c,
+    type: 2}
+  _hideTooltipVoidEventChannel: {fileID: 11400000, guid: 9b5ebf9e838e23e40ab2fd44872e4261,
     type: 2}
 --- !u!114 &2765948478201147892
 MonoBehaviour:

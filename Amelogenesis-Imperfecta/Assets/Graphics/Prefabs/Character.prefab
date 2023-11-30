@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 534228139601542696}
   - component: {fileID: 5238737414385089677}
   - component: {fileID: 126179151796569998}
+  - component: {fileID: 3812086255937359365}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -132,10 +133,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823416f374eb46c6918e167f78d8379f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mouseSensitivity: 10
+  _blockPlayerActionsBoolEventChannel: {fileID: 11400000, guid: 2bd0754d9f4f6674b9cf294ad797697c,
+    type: 2}
   _characterBody: {fileID: 3251834331489706452}
+  _mouseSensitivity: 10
   _clampXRotationMin: -90
   _clampXRotationMax: 90
+--- !u!114 &3812086255937359365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2718594720199641484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368d15542c734823a18e531fc455f5ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showTooltipStringEventChannel: {fileID: 11400000, guid: 943140b0605c54e4592850f80e37359c,
+    type: 2}
+  _hideTooltipVoidEventChannel: {fileID: 11400000, guid: 9b5ebf9e838e23e40ab2fd44872e4261,
+    type: 2}
+  _setPositionTransformEventChannel: {fileID: 11400000, guid: 5cabbeddb48eff046a84ea2273c7bfca,
+    type: 2}
+  _PickedUpAnObjectBoolEventChannel: {fileID: 11400000, guid: 4839b7e2a3591bb4e9baadfc10692408,
+    type: 2}
+  _layerTooltip:
+    serializedVersion: 2
+    m_Bits: 2048
+  _raycastRange: 5
 --- !u!1 &3251834329832234805
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,13 +291,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a7c16ead9cd664ab755a2baf06241a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterController: {fileID: 3251834331489706455}
-  _speed: 10
-  _groundCheck: {fileID: 3251834330743437804}
-  _groundDistance: 0.4
+  _blockPlayerActionsBoolEventChannel: {fileID: 11400000, guid: 2bd0754d9f4f6674b9cf294ad797697c,
+    type: 2}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _characterController: {fileID: 3251834331489706455}
+  _groundCheck: {fileID: 3251834330743437804}
+  _speed: 10
+  _groundDistance: 0.4
   _gravity: -9.81
 --- !u!114 &3251834331489706457
 MonoBehaviour:
@@ -284,9 +313,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065e926e4a360974b81b76c6749c67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _layerToPickUp:
+  _blockPlayerActionsBoolEventChannel: {fileID: 11400000, guid: 2bd0754d9f4f6674b9cf294ad797697c,
+    type: 2}
+  _hideTooltipVoidEventChannel: {fileID: 11400000, guid: 9b5ebf9e838e23e40ab2fd44872e4261,
+    type: 2}
+  _PickedUpAnObjectBoolEventChannel: {fileID: 11400000, guid: 4839b7e2a3591bb4e9baadfc10692408,
+    type: 2}
+  _layerToPickup:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 2048
   _targetLookDirection: {fileID: 551063478246929191}
   _holdArea: {fileID: 3251834329832234804}
   _pickupRange: 5

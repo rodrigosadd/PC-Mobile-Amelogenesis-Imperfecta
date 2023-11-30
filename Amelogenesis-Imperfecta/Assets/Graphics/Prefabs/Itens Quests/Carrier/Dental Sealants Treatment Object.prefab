@@ -66,6 +66,10 @@ MonoBehaviour:
   _questToComplete: {fileID: 11400000, guid: ea24136ac6d8ec5438c4ac093025e7d0, type: 2}
   _completeQuestStringEventChannel: {fileID: 11400000, guid: 3180801a4e48be443908c0ab958457cf,
     type: 2}
+  _showTooltipStringEventChannel: {fileID: 11400000, guid: 49f4d5705c8e86a479068f644b5d3ce6,
+    type: 2}
+  _hideTooltipVoidEventChannel: {fileID: 11400000, guid: be8923d46b932614abf9b917543631b2,
+    type: 2}
 --- !u!114 &809845083325328251
 MonoBehaviour:
   m_ObjectHideFlags: 0
