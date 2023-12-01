@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rbody: {fileID: 2809499946708100389}
-  _boolEventChannel: {fileID: 11400000, guid: 74b7e913af859274ab110931822c14ca, type: 2}
 --- !u!1 &8642624096097392071
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +125,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 520fb930a666ed645a2be39d9b8e2351, type: 2}
+  - {fileID: 2100000, guid: 927395dfee4ea794ebb359cc2b60f1f9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
