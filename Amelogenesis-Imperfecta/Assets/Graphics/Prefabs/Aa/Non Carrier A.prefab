@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rbody: {fileID: 160938002725896930}
-  _boolEventChannel: {fileID: 11400000, guid: 644c24024e1be8a4088651b306d94e21, type: 2}
 --- !u!1001 &5996078639694262786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,7 +144,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 520fb930a666ed645a2be39d9b8e2351, type: 2}
+      objectReference: {fileID: 2100000, guid: 927395dfee4ea794ebb359cc2b60f1f9, type: 2}
     - target: {fileID: 919132149155446097, guid: f2fc2ca82b7152e419c010db491eb864,
         type: 3}
       propertyPath: m_Name

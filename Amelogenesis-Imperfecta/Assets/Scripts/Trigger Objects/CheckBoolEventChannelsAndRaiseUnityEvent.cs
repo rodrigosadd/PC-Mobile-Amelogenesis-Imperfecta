@@ -17,14 +17,12 @@ namespace Trigger_Objects
 
         private void OnEnable()
         {
-            // Inscreva-se nos eventos dos BoolEventChannelSO
             _firstBoolEventChannel.OnBoolRequested += HandleBoolEvent1;
             _secondBoolEventChannel.OnBoolRequested += HandleBoolEvent2;
         }
 
         private void OnDisable()
         {
-            // Desinscreva-se dos eventos ao ser desativado
             _firstBoolEventChannel.OnBoolRequested -= HandleBoolEvent1;
             _secondBoolEventChannel.OnBoolRequested -= HandleBoolEvent2;
         }
@@ -43,10 +41,8 @@ namespace Trigger_Objects
 
         private void CheckBothBools()
         {
-            // Verifique se ambos os valores são true
             if (boolValue1 && boolValue2)
             {
-                // Acione o UnityEvent
                 onBothTrue.Invoke();
             }
             else
