@@ -7,8 +7,9 @@ namespace Trigger_Objects
 {
     public class MoveObjectToTargetPosition : MonoBehaviour
     {
-        [SerializeField] private VoidEventChannelSO _moveToTargetPositionVoidEventChannel;
         [SerializeField] private VoidEventChannelSO _ReturnToStartPositionVoidEventChannel;
+        [SerializeField] private VoidEventChannelSO _moveToTargetPositionVoidEventChannel;
+        [SerializeField] private Transform _objectToMove;
         [SerializeField] private Transform _targetPosition;
         [SerializeField] private Ease _easeMoveToTargetPosition;
         [SerializeField] private Ease _easeMoveToStartPosition;
@@ -22,7 +23,12 @@ namespace Trigger_Objects
 
         private void Start()
         {
-            _startPosition = transform.position;
+            if (_objectToMove == null)
+            {
+                _objectToMove = transform;
+            }
+            
+            _startPosition = _objectToMove.position;
         }
 
         private void OnEnable()
@@ -39,12 +45,12 @@ namespace Trigger_Objects
 
         private void MoveToTargetPosition()
         {
-            transform.DOMove(_targetPosition.position, _duration).SetEase(_easeMoveToTargetPosition).SetDelay(_delayMoveToTargetPosition).OnComplete(MoveToTargetPositionCallback);
+            _objectToMove.DOMove(_targetPosition.position, _duration).SetEase(_easeMoveToTargetPosition).SetDelay(_delayMoveToTargetPosition).OnComplete(MoveToTargetPositionCallback);
         }
 
         private void ReturnToStartPosition()
         {
-            transform.DOMove(_startPosition, _duration).SetEase(_easeMoveToStartPosition).SetDelay(_delayMoveToStartPosition).OnComplete(MoveToStartPositionCallback);
+            _objectToMove.DOMove(_startPosition, _duration).SetEase(_easeMoveToStartPosition).SetDelay(_delayMoveToStartPosition).OnComplete(MoveToStartPositionCallback);
         }
 
         private void MoveToTargetPositionCallback()

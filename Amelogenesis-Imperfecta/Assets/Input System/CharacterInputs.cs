@@ -62,6 +62,15 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Esq"",
+                    ""type"": ""Button"",
+                    ""id"": ""614b5786-c1c4-4fbe-afe8-e42d151ef676"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""438e195a-7308-4bdf-9e8d-5ad4b047c2b3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Esq"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
         m_CharacterActionMap_MouseLook = m_CharacterActionMap.FindAction("Mouse Look", throwIfNotFound: true);
         m_CharacterActionMap_Grab = m_CharacterActionMap.FindAction("Grab", throwIfNotFound: true);
         m_CharacterActionMap_Throw = m_CharacterActionMap.FindAction("Throw", throwIfNotFound: true);
+        m_CharacterActionMap_Esq = m_CharacterActionMap.FindAction("Esq", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +250,7 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterActionMap_MouseLook;
     private readonly InputAction m_CharacterActionMap_Grab;
     private readonly InputAction m_CharacterActionMap_Throw;
+    private readonly InputAction m_CharacterActionMap_Esq;
     public struct CharacterActionMapActions
     {
         private @CharacterInputs m_Wrapper;
@@ -237,6 +259,7 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
         public InputAction @MouseLook => m_Wrapper.m_CharacterActionMap_MouseLook;
         public InputAction @Grab => m_Wrapper.m_CharacterActionMap_Grab;
         public InputAction @Throw => m_Wrapper.m_CharacterActionMap_Throw;
+        public InputAction @Esq => m_Wrapper.m_CharacterActionMap_Esq;
         public InputActionMap Get() { return m_Wrapper.m_CharacterActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
             @Throw.started += instance.OnThrow;
             @Throw.performed += instance.OnThrow;
             @Throw.canceled += instance.OnThrow;
+            @Esq.started += instance.OnEsq;
+            @Esq.performed += instance.OnEsq;
+            @Esq.canceled += instance.OnEsq;
         }
 
         private void UnregisterCallbacks(ICharacterActionMapActions instance)
@@ -274,6 +300,9 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
             @Throw.started -= instance.OnThrow;
             @Throw.performed -= instance.OnThrow;
             @Throw.canceled -= instance.OnThrow;
+            @Esq.started -= instance.OnEsq;
+            @Esq.performed -= instance.OnEsq;
+            @Esq.canceled -= instance.OnEsq;
         }
 
         public void RemoveCallbacks(ICharacterActionMapActions instance)
@@ -297,5 +326,6 @@ public partial class @CharacterInputs: IInputActionCollection2, IDisposable
         void OnMouseLook(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
+        void OnEsq(InputAction.CallbackContext context);
     }
 }
