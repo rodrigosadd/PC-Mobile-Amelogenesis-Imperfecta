@@ -11,6 +11,7 @@ namespace Quest_System
         [SerializeField] private List<Quest> _quests = new List<Quest>();
         [SerializeField] private StringEventChannelSO _completeQuestStringEventChannel;
         [SerializeField] private StringEventChannelSO _uncompleteQuestStringEventChannel;
+        [SerializeField] private VoidEventChannelSO _currentQuestCompleted;
         [Space]
         [SerializeField] private UnityEvent _OnAreAllQuestsCompleted;
 
@@ -61,6 +62,7 @@ namespace Quest_System
             quest.isCompleted = true;
             
             Debug.Log("Missão concluída: " + questName);
+            _currentQuestCompleted.RaiseVoidEvent();
 
             if (!AreAllQuestsCompleted()) return;
             
