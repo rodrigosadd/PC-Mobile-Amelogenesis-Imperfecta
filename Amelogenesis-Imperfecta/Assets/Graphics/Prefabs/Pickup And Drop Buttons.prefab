@@ -135,6 +135,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: d56c5aa594dda0649bb1df3f5c29823b, type: 2}
+        m_TargetAssemblyTypeName: Scriptable_Objects.Channels.SoundEventChannelSO,
+          Assembly-CSharp
+        m_MethodName: RaiseSoundEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f8185633732f0094588256eaf7b18869,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: SoundSO, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7349176286694800553
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +551,20 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: d56c5aa594dda0649bb1df3f5c29823b, type: 2}
+        m_TargetAssemblyTypeName: Scriptable_Objects.Channels.SoundEventChannelSO,
+          Assembly-CSharp
+        m_MethodName: RaiseSoundEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f8185633732f0094588256eaf7b18869,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: SoundSO, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

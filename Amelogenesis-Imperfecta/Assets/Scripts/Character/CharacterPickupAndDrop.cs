@@ -1,5 +1,6 @@
 using Interfaces;
 using UnityEngine;
+using UnityEngine.Events;
 using Character_Inputs;
 using Scriptable_Objects.Channels;
 
@@ -19,6 +20,9 @@ namespace Character
         [SerializeField] private float _pickupRange = 5f;
         [SerializeField] private float _pickupForce = 150f;
         [SerializeField] private float _throwForce;
+        [Space]
+        [SerializeField] private UnityEvent _onPickup;
+        [SerializeField] private UnityEvent _onThrow;
 
         private RaycastHit _raycastHit;
         private IGrabbable _currentGrabbableObject;
@@ -65,6 +69,7 @@ namespace Character
                 _currentGrabbableObject.PickupObject(_holdArea);
                 _hideTooltipVoidEventChannel.RaiseVoidEvent();
                 _PickedUpAnObjectBoolEventChannel.RaiseBoolEvent(true);
+                _onPickup?.Invoke();
             }
             else
             {
@@ -86,6 +91,7 @@ namespace Character
             _currentGrabbableObject?.ThrowObject(_targetLookDirection, _throwForce);
             _currentGrabbableObject = null;
             _PickedUpAnObjectBoolEventChannel.RaiseBoolEvent(false);
+            _onThrow?.Invoke();
         }
 
         private void ResetPickup()
