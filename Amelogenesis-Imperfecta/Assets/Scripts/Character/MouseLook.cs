@@ -11,7 +11,7 @@ namespace Character
         [SerializeField] private float _mouseSensitivity;
         [SerializeField] private float _clampXRotationMin;
         [SerializeField] private float _clampXRotationMax;
-        
+
         private float _xRotation;
         private bool _actionsBlocked;
         
@@ -28,7 +28,7 @@ namespace Character
         private void Update()
         {
             if (_actionsBlocked) return;
-        
+            
             var mousePosition = CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.MouseLook.ReadValue<Vector2>() * (_mouseSensitivity * Time.deltaTime);
             
             _xRotation -= mousePosition.y;

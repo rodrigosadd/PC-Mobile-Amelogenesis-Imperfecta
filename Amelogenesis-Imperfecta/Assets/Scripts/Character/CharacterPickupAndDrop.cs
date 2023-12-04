@@ -8,8 +8,11 @@ namespace Character
     public class CharacterPickupAndDrop : MonoBehaviour
     {
         [SerializeField] private BoolEventChannelSO _blockPlayerActionsBoolEventChannel;
-        [SerializeField] private VoidEventChannelSO _hideTooltipVoidEventChannel;
         [SerializeField] private BoolEventChannelSO _PickedUpAnObjectBoolEventChannel;
+        [SerializeField] private VoidEventChannelSO _pickupVoidEventChannel;
+        [SerializeField] private VoidEventChannelSO _throwVoidEventChannel;
+        [SerializeField] private VoidEventChannelSO _hideTooltipVoidEventChannel;
+        [SerializeField] private VoidEventChannelSO _resetPickupVoidEventChannel;
         [SerializeField] private LayerMask _layerToPickup;
         [SerializeField] private Transform _targetLookDirection;
         [SerializeField] private Transform _holdArea;
@@ -26,6 +29,9 @@ namespace Character
             CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Grab.performed += ctx => Pickup();
             CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Throw.performed += ctx => Throw();
 
+            _pickupVoidEventChannel.OnVoidRequested += Pickup;
+            _throwVoidEventChannel.OnVoidRequested += Throw;
+            _resetPickupVoidEventChannel.OnVoidRequested += ResetPickup;
             _blockPlayerActionsBoolEventChannel.OnBoolRequested += SetBlockActionsBoolEventChannel;
         }
 
@@ -34,7 +40,9 @@ namespace Character
             CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Grab.performed -= ctx => Pickup();
             CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Throw.performed -= ctx => Throw();
             
-            
+            _pickupVoidEventChannel.OnVoidRequested -= Pickup;
+            _throwVoidEventChannel.OnVoidRequested -= Throw;
+            _resetPickupVoidEventChannel.OnVoidRequested -= ResetPickup;
             _blockPlayerActionsBoolEventChannel.OnBoolRequested -= SetBlockActionsBoolEventChannel;
         }
 
@@ -80,6 +88,15 @@ namespace Character
             _PickedUpAnObjectBoolEventChannel.RaiseBoolEvent(false);
         }
 
+        private void ResetPickup()
+        {
+            if(_currentGrabbableObject == null) return;
+            
+            _currentGrabbableObject.DropObject();
+            _currentGrabbableObject = null;
+            _PickedUpAnObjectBoolEventChannel.RaiseBoolEvent(false);
+        }
+        
         private void SetBlockActionsBoolEventChannel(bool value)
         {
             _actionsBlocked = value;

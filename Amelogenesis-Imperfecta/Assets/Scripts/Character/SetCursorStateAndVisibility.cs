@@ -8,9 +8,12 @@ namespace Character
     {
         [SerializeField] private BoolEventChannelSO _setCursorVisibilityBoolEventChannel;
         [SerializeField] private CursorLockModeEventChannelSO _cursorLockModeEventChannelSOEventChannel;
+        [SerializeField] private bool _resetOptionsOnStart = true;
         
         private void Start()
         {
+            if (!_resetOptionsOnStart) return;
+            
             Cursor.lockState = CursorLockMode.Locked;
             SetCursorVisibility(false);
         }

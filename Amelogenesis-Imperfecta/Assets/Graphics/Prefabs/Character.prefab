@@ -136,7 +136,7 @@ MonoBehaviour:
   _blockPlayerActionsBoolEventChannel: {fileID: 11400000, guid: 2bd0754d9f4f6674b9cf294ad797697c,
     type: 2}
   _characterBody: {fileID: 3251834331489706452}
-  _mouseSensitivity: 10
+  _mouseSensitivity: 42
   _clampXRotationMin: -90
   _clampXRotationMax: 90
 --- !u!114 &3812086255937359365
@@ -162,7 +162,7 @@ MonoBehaviour:
   _layerTooltip:
     serializedVersion: 2
     m_Bits: 2048
-  _raycastRange: 5
+  _raycastRange: 8
 --- !u!1 &3251834329832234805
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +298,7 @@ MonoBehaviour:
     m_Bits: 64
   _characterController: {fileID: 3251834331489706455}
   _groundCheck: {fileID: 3251834330743437804}
-  _speed: 10
+  _speed: 3
   _groundDistance: 0.4
   _gravity: -9.81
 --- !u!114 &3251834331489706457
@@ -315,9 +315,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blockPlayerActionsBoolEventChannel: {fileID: 11400000, guid: 2bd0754d9f4f6674b9cf294ad797697c,
     type: 2}
+  _PickedUpAnObjectBoolEventChannel: {fileID: 11400000, guid: 4839b7e2a3591bb4e9baadfc10692408,
+    type: 2}
+  _pickupVoidEventChannel: {fileID: 11400000, guid: 3fcbeda84420a224888e92321800b3e7,
+    type: 2}
+  _throwVoidEventChannel: {fileID: 11400000, guid: 91ff553c0cd835f448f6c0c09c9f22dd,
+    type: 2}
   _hideTooltipVoidEventChannel: {fileID: 11400000, guid: 9b5ebf9e838e23e40ab2fd44872e4261,
     type: 2}
-  _PickedUpAnObjectBoolEventChannel: {fileID: 11400000, guid: 4839b7e2a3591bb4e9baadfc10692408,
+  _resetPickupVoidEventChannel: {fileID: 11400000, guid: 7de4b6d79e27df74f988c1d97628fe9e,
     type: 2}
   _layerToPickup:
     serializedVersion: 2

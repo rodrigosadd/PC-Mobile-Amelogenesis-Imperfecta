@@ -13,7 +13,7 @@ namespace Character
         [SerializeField] private float _speed;
         [SerializeField] private float _groundDistance;
         [SerializeField] private float _gravity = -9.81f;
-        
+
         private Vector3 _velocity;
         private bool _isGrounded;
         private bool _actionsBlocked;
@@ -40,6 +40,7 @@ namespace Character
             }
             
             var movementInput = CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Movement.ReadValue<Vector2>();
+            //Debug.Log(CharacterInputsInstance.GetCharacterInputs().CharacterActionMap.Movement.ReadValue<Vector2>());
             var direction = transform.right * movementInput.x + transform.forward * movementInput.y;
         
             _characterController.Move(direction * (_speed * Time.deltaTime));
